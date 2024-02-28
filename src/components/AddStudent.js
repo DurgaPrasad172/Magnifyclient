@@ -4,11 +4,13 @@ import axios from '../services/api';
 const AddStudent = ({ onStudentAdded }) => {
   const [studentName, setStudentName] = useState('');
   const [classId, setClassId] = useState('');
+  const [studentId, setStudentId] = useState('');
 
   const handleAddStudent = () => {
     const newStudent = {
       student_name: studentName,
-      class_id: classId
+      class_id: classId,
+      student_id:studentId
     };
 
     axios.post('/students', newStudent)
@@ -26,6 +28,11 @@ const AddStudent = ({ onStudentAdded }) => {
     <div>
       <h2>Add Student</h2>
       <label>
+        Student Id:
+        <input type="text" value={studentId} onChange={(e) => setStudentId(e.target.value)} />
+      </label>
+      <br/>
+      <label>
         Student Name:
         <input type="text" value={studentName} onChange={(e) => setStudentName(e.target.value)} />
       </label>
@@ -36,6 +43,7 @@ const AddStudent = ({ onStudentAdded }) => {
       </label>
       <br />
       <button onClick={handleAddStudent}>Add Student</button>
+      
     </div>
   );
 };

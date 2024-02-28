@@ -25,7 +25,7 @@ const StudentList = () => {
       ) : (
         <ul>
           {students.map(student => (
-            <li key={student.student_id}>{student.student_name}</li>
+            <li key={student.student_id}> {student.student_name} - Class: {student.class_id}</li>
           ))}
         </ul>
       )}
